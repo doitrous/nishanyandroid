@@ -1,0 +1,20 @@
+PASS: no GitHub Actions workflows
+PASS: no WebView implementation
+PASS: no legacy notebook write key in production
+PASS: current notebook endpoint present
+PASS: university projection endpoint present
+PASS: HTTP automatic retries disabled
+PASS: HTTP redirects disabled
+PASS: all mutation methods receive Origin
+PASS: write journal persisted before PUT in source
+PASS: encrypted draft storage uses Android Keystore and AtomicFile
+PASS: no reference repository content committed
+PASS: XML files parse
+PASS: backup disabled
+PASS: cleartext disabled
+PASS: RTL enabled
+PASS: official wrapper JAR digest
+PASS: wrapper entry point present
+PASS: no private keys/signing files
+PASS: no apparent access tokens
+{"static_checks_passed": 19, "jvm_tests_authored": 19, "device_tests_authored": 4, "jvm_tests_executed": 0, "device_tests_executed": 0, "compilation_verified": false}

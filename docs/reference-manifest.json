@@ -1,0 +1,201 @@
+{
+  "website": {
+    "repository": "doitrous/synapse",
+    "commit": "dbe891d416b0247560dd48a9ab363c4749fde98e",
+    "files": [
+      {
+        "path": "src/router.tsx",
+        "blobSha": "c6f82f9c7c24cb3ed8c65a5c54d562a81d309f6c"
+      },
+      {
+        "path": "server/src/authRoutes.js",
+        "blobSha": "d8ac80addc2bb9f6df52af1fc6710541b43568e8"
+      },
+      {
+        "path": "server/src/accounts.js",
+        "blobSha": "cf942f4739c59fbc5d9ee6f81be188005d3af7e7"
+      },
+      {
+        "path": "server/src/sessionStore.js",
+        "blobSha": "87d38efb1fcbef6f5c35be39444e550c5682456c"
+      },
+      {
+        "path": "server/src/academic.js",
+        "blobSha": "6edb39e19a08cb1942836ff8f15d7d2eaa39d67a"
+      },
+      {
+        "path": "server/src/notebookNotes.js",
+        "blobSha": "7eac3921a1184fdbc52ffadbd7e002f460120600"
+      },
+      {
+        "path": "server/src/auth.js",
+        "blobSha": "e7b6e3e59cb14dc275befc7db84783cc3233c389"
+      },
+      {
+        "path": "server/src/roomsRealtime.js",
+        "blobSha": "2f7dfecea645b6660b512bc00a35836fb55bb80b"
+      },
+      {
+        "path": "server/src/notifications.js",
+        "blobSha": "c85a4e7ed2ea4271d2dced7673cbf27e3a3acb67"
+      },
+      {
+        "path": "server/shared/generalTrack.js",
+        "blobSha": "3d52dd0ca7cf6c1b494d7acb6b58f2f599b0c5d3"
+      },
+      {
+        "path": "server/shared/notebookModel.js",
+        "blobSha": "e84e192ab02e2c83b853b3c95c3da88940cbdfdb"
+      },
+      {
+        "path": "server/src/routes/state.js",
+        "blobSha": "953f6f34b4edb27dbc9127785d3e0c1b416102f9"
+      },
+      {
+        "path": "server/src/routes/library.js",
+        "blobSha": "70dca0725905276f8b40ea70416a16b8d7f27943"
+      },
+      {
+        "path": "server/src/routes/qotd.js",
+        "blobSha": "61035362a2cf76625fe8e58f1cd1a46bf9e4272a"
+      },
+      {
+        "path": "server/src/routes/qbank.js",
+        "blobSha": "9a8c8e32fe5f8a1db7f9090ceaad821b081e3b8c"
+      },
+      {
+        "path": "server/src/routes/userState.js",
+        "blobSha": "b92ba7c124e0457181adf483bc2cd8cacb193b04"
+      },
+      {
+        "path": "server/src/routes/notebook.js",
+        "blobSha": "aca975921f26f32c01b7681a5d202f436f996c5a"
+      },
+      {
+        "path": "server/src/routes/auth.js",
+        "blobSha": "9f40ef81967511d65048573323b407f3b8c8273d"
+      },
+      {
+        "path": "server/src/routes/payments.js",
+        "blobSha": "d469018004f6d8752324d31df5c3c6b8a67aafa6"
+      },
+      {
+        "path": "server/src/routes/me.js",
+        "blobSha": "4410411c4f25756087a8b1871c1e79443f0aff73"
+      },
+      {
+        "path": "server/src/routes/studyRooms.js",
+        "blobSha": "885cce39dce740ca798495b2c657665e2e23866d"
+      },
+      {
+        "path": "server/src/routes/notifications.js",
+        "blobSha": "3d479b4a0f88bfb597d815579c388495e994f78d"
+      },
+      {
+        "path": "src/lib/entitlement.ts",
+        "blobSha": "c7b4a14ce8422bb6cf467df243916ab87308cfb8"
+      },
+      {
+        "path": "src/lib/useUniversityCatalogue.ts",
+        "blobSha": "a71f156fe3a632eca48f4415d0e77a06e0476b88"
+      },
+      {
+        "path": "src/data/onboarding.ts",
+        "blobSha": "2bb080caeed26ab50aeb70d96f85680b102db136"
+      },
+      {
+        "path": "src/data/universities.ts",
+        "blobSha": "beb810e8a8a604dde3b6719eb289ca3ed48573cc"
+      },
+      {
+        "path": "src/data/notebook.ts",
+        "blobSha": "3b5f74a18687321628905332a636289b5093a7a4"
+      },
+      {
+        "path": "src/lib/auth/client.ts",
+        "blobSha": "bde850915feea3545d6a78dbb744bc6afa01aa65"
+      },
+      {
+        "path": "src/lib/notebook/notebookClient.ts",
+        "blobSha": "2dcfc25a436e88430ec66a1ae63aa4cc7ea44edd"
+      },
+      {
+        "path": "src/lib/notebook/notebookNotes.ts",
+        "blobSha": "67b1028f2b8ddc22129d071ed66cf885b727de52"
+      },
+      {
+        "path": "src/lib/rooms/roomChannel.ts",
+        "blobSha": "d2fdc3c5fdd35377d44619045f4cb92daf05efe3"
+      },
+      {
+        "path": "src/lib/rooms/roomVideo.ts",
+        "blobSha": "d9abb0c073a0dd1af98ff6573bcc1347ad7d8bf2"
+      },
+      {
+        "path": "src/lib/rooms/useRoomAudio.ts",
+        "blobSha": "041c9fefe9cb15e53567a754400a537ce1bace82"
+      },
+      {
+        "path": "src/components/games/MinigamesHubPage.tsx",
+        "blobSha": "5ca4a42431b9d2360c541d2be46e8695e322758e"
+      },
+      {
+        "path": "src/pages/student/StudyRooms.tsx",
+        "blobSha": "4bb9bcad260310798fc451f856e10af162e849bc"
+      },
+      {
+        "path": "src/pages/student/Whiteboard.tsx",
+        "blobSha": "caea923f89ff29d21b9feaa94770b69216ca54f9"
+      },
+      {
+        "path": "src/pages/student/Flashcards.tsx",
+        "blobSha": "8c2e89c36032f0b09877c187d0147b2599325e86"
+      },
+      {
+        "path": "src/pages/student/Library.tsx",
+        "blobSha": "020dd225d9a22facccd225d457d80d338acb4e3e"
+      },
+      {
+        "path": "src/pages/student/Revise.tsx",
+        "blobSha": "5e776a3c873ac918d7eba2f24986ad5d4c7ac2e6"
+      },
+      {
+        "path": "src/pages/student/Notebook.tsx",
+        "blobSha": "52c3a07ae8a9bef26d9c2cf3b995f8afd67fbe62"
+      },
+      {
+        "path": "src/pages/student/OralQuestions.tsx",
+        "blobSha": "1ef0077e192d10996a39be0d929c0b91e4d6772e"
+      },
+      {
+        "path": "src/pages/student/Resources.tsx",
+        "blobSha": "f2c54c16fa0a65b1446b53fb2023ff87bc841e37"
+      },
+      {
+        "path": "src/pages/student/Histology.tsx",
+        "blobSha": "587548d1596827c6cd2a27d574d1a019dfb15ea8"
+      },
+      {
+        "path": "src/pages/student/QuestionBank.tsx",
+        "blobSha": "b6975430c7f78cc67c9d6dc90663204209a8fe60"
+      },
+      {
+        "path": "src/pages/student/Calendar.tsx",
+        "blobSha": "eaa4ba24d1e7bdeda607b7ed20c852e98252e0a3"
+      },
+      {
+        "path": "src/pages/student/AnatomyAtlas.tsx",
+        "blobSha": "ae708d85d2d3436be816c79295ea3a787a35b9e1"
+      }
+    ]
+  },
+  "ios": {
+    "repository": "doitrous/nishanyios",
+    "branch": "native/full-student-workflows",
+    "commit": "5f52dcc104f21fa27a6c179ee916a88166733fa4",
+    "uncommittedLocalWorkAvailable": false,
+    "paritySweepPresent": false
+  },
+  "note": "References are read-only. Only source paths and blob identifiers are published; reference file contents are excluded.",
+  "inspectedDateUTC": "2026-09-29"
+}
