@@ -1,10 +1,10 @@
 # Android student parity ledger
 
-Updated 2026-09-29 UTC / 2026-09-30 Cairo. Full requested parity remains the target. **No Android feature is verified yet.**
+Updated 2026-09-30 UTC. Full requested parity remains the target. **No Android feature is verified yet.**
 
 Status meanings: **missing** = no Android implementation; **partial** = some source exists but scope remains incomplete; **implemented** = scoped source exists, still awaiting runtime acceptance; **verified** = required runtime/live evidence attached. Buildability is itself unverified, so this checkpoint conservatively uses partial/missing only.
 
-Website evidence below is pinned to `dbe891d416b0247560dd48a9ab363c4749fde98e`, not inferred from old iOS ledgers. Paths are in `doitrous/synapse` unless prefixed Android. The source manifest records hashes for the downloaded reference files. All fixtures below are authored tests, not execution results.
+Initial website evidence below is pinned to `dbe891d416b0247560dd48a9ab363c4749fde98e`, not inferred from old iOS ledgers. Paths are in `doitrous/synapse` unless prefixed Android. The source manifest records hashes for the downloaded reference files. QBank-specific contracts were additionally inspected at `3d26ff80deac92aaaa4d3ccce1aadd48421c80c7`; see `docs/QBANK.md`. All fixtures below are authored tests, not execution results.
 
 ## Product availability
 
@@ -27,7 +27,7 @@ There is a **website availability inconsistency**: `src/pages/student/Revise.tsx
 | Account export/deletion/management | missing | `routes/me.js`, Account page | Lifecycle and retention semantics need complete audit |
 | Local sign-in removal | partial | Native device behavior | Retired cookie jar, canceled client, owner-scoped drafts; device tests unrun |
 | Global sign-out | partial | POST /api/auth/logout | Explicit all-device confirmation; live web/iOS revocation not tested |
-| Native home/navigation | partial | `src/router.tsx`, Dashboard page | Four native destinations; full dashboard metrics/navigation missing |
+| Native home/navigation | partial | `src/router.tsx`, Dashboard page | Five native destinations; full dashboard metrics/navigation missing |
 | Global search | missing | Shell/library/QBank sources | Notebook summary filtering alone is not global search |
 | Notification inbox | partial | `routes/notifications.js`, `notifications.js` | Reads real array-shaped inbox; unread marking, routing, push and preferences missing |
 | Deep links | partial | `src/router.tsx` | Exact HTTPS notebook/university routes; no verified App Links association or detail/invite routing |
@@ -37,11 +37,11 @@ There is a **website availability inconsistency**: `src/pages/student/Revise.tsx
 
 | Student feature | Android | Website evidence | Remaining scope / evidence |
 |---|---|---|---|
-| QBank formats and rendering | missing | `pages/student/QuestionBank.tsx`, `pages/student/qbank/*` | Inventory each current renderer and scoring contract before porting |
-| QBank filters and session builder | missing | QuestionBank + qbank builder/state | All sources, topics/subtopics, modes and limits |
-| Timed sessions and resume | missing | QuestionBank / qbank state | Durable session recovery; clock/background semantics |
-| Flags, explanations, reports | missing | QuestionBank + `routes/contentReports.js` | Preserve question references and content entitlements |
-| Verified attempts/history/performance | missing | `routes/qbank.js`, `qbankAttempts.js` | Server-scored attempts, session identity, shards and cross-device tests |
+| QBank formats and rendering | partial | `questionProjection.ts`, `studentContent.js` | Single-best saved-session text viewer only; images/math/rich renderers and other formats missing |
+| QBank filters and session builder | partial | QuestionBank + qbank builder/state | Summary topic/subject/difficulty filters; new-session builder, source/flag/incorrect/omitted filters missing |
+| Timed sessions and resume | partial | QuestionBank / qbank state | Explicit read-only saved-session fetch preserving exact order; answering, timing and writable resume missing |
+| Flags, explanations, reports | partial | QuestionBank + `routes/contentReports.js` | Existing checked tutor explanation displayed; checking answers, flags and reports missing |
+| Verified attempts/history/performance | partial | `routes/qbank.js`, `qbankAttempts.js`, `data/sittings.ts` | Unified history list read only; legacy shard history, server submission/scoring and performance missing |
 | Flashcard review and scheduling | missing | `pages/student/Flashcards.tsx`, `lib/useFlashcards.ts` | Match actual scheduler and log schema; generic user-state has no conditional-write contract |
 | Basic/cloze/rich/occlusion authoring | missing | `components/flashcards/*`, `data/flashcards/*` | Full native editors/renderers; unknown-field preservation |
 | Flashcard undo/bury/suspend/settings | missing | Flashcards study/browse controllers | Review state transitions, restored logs and day boundaries |
@@ -120,9 +120,9 @@ Evidence: router studentPages, `src/components/games/MinigamesHubPage.tsx`, game
 
 | Requirement | Status | Evidence |
 |---|---|---|
-| Cloud source upload; no GitHub runners | partial until upload readback | No workflows included; no Actions invocation |
+| Cloud source upload; no GitHub runners | first checkpoint uploaded and read back | Initial commit `efc071c`; no workflows or Actions invocation. Later uploads recorded in Git history |
 | Kotlin/Android compile | blocked | `docs/evidence/gradle-attempt.log`: distribution download failed before compilation |
-| Unit/API tests | authored, not run | 19 initial JVM test methods; inventory updated by static audit |
+| Unit/API tests | authored, not run | 29 JVM test methods; inventory updated by static audit |
 | Instrumented UI/storage tests | authored, not run | 4 methods; deterministic sign-in form and isolated test vault |
 | Static repository audit | see evidence log | XML/wrapper/source boundary checks only, not a Kotlin compiler |
 | Actual emulator screenshots | missing | None captured; no preview render is claimed as an emulator screenshot |

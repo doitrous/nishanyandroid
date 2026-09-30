@@ -52,3 +52,12 @@ Need two explicitly authorized student accounts (free and paid; MFA-enabled acco
 9. Confirm explicit global logout ends website/iOS sessions; local device removal must not claim to revoke them. Restart after each option.
 
 Google Play and cross-platform media acceptance are separate gates in RELEASE.md and ROOMS.md. Do not test paid transactions, enrollment changes or destructive account operations on production student accounts without explicit test authorization.
+
+## QBank continuation acceptance (not run)
+
+1. Sign in with authorized free and paid accounts. Confirm catalogue browsing performs summary GETs only and does not consume full-question allowance.
+2. Create a website session, view it on Android, compare exact order and selected answers. Checked tutor explanations may display; unchecked and timed keys must remain hidden. Confirm Android viewing changes no server state.
+3. Verify completed-session ledger exclusion even if the active document is stale. Unpublish one manifest question: refuse the entire viewer rather than show a shorter paper.
+4. Test quota rejection, missing profile, revoked entitlement, malformed envelopes, unsupported formats, duplicate IDs and slow/offline/session-expired reads.
+5. Inspect English/Arabic, RTL, large text, TalkBack and phone/tablet captures for catalogue, no matches, history, saved question, checked explanation, media warning and error states.
+6. Before enabling writes, run new UserStateRepository fixtures and process-death/account-isolation instrumentation, then real simultaneous-device tests. Demonstrate the remaining non-atomic race; do not label it solved by preflight.

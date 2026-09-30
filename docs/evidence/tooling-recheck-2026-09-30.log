@@ -1,0 +1,10 @@
+Cloud tool availability; no build or device test executed.
+java: /usr/bin/java
+gradle: NOT AVAILABLE
+adb: NOT AVAILABLE
+emulator: NOT AVAILABLE
+sdkmanager: NOT AVAILABLE
+kotlinc: NOT AVAILABLE
+Gradle distribution probe earlier this turn: Proxy CONNECT aborted due to timeout.
+Original failed wrapper attempt retained in gradle-attempt.log.
+No GitHub runners used.

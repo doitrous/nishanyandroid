@@ -1,0 +1,71 @@
+{
+  "repository": "doitrous/synapse",
+  "commit": "3d26ff80deac92aaaa4d3ccce1aadd48421c80c7",
+  "inspectedDateUTC": "2026-09-30",
+  "files": [
+    {
+      "path": "src/data/qbank.ts",
+      "blobSha": "dc49520d63402f05b5fb4355d809cd97df856f7d"
+    },
+    {
+      "path": "src/pages/student/qbank/state.ts",
+      "blobSha": "19543f3805e26140cb89088bd57ac4c40f60ca59"
+    },
+    {
+      "path": "src/pages/student/qbank/useQbankQuestions.ts",
+      "blobSha": "0d29b41a3424a11a9b74241126687b43cddbdc4c"
+    },
+    {
+      "path": "src/lib/useAttemptLog.ts",
+      "blobSha": "f37214204a75c260237e08977f31ee48abf02995"
+    },
+    {
+      "path": "src/data/qbankSession.ts",
+      "blobSha": "755406a1fcbe85d7484fb543c9a613c92fb60afe"
+    },
+    {
+      "path": "src/data/qbankCollections.ts",
+      "blobSha": "a83e4e3b0a7a47cbfcd7521aec321cbe5b17b32b"
+    },
+    {
+      "path": "src/lib/usePublishedQuestions.ts",
+      "blobSha": "6da660418b62c4a0fe858ce03b8da7f689ebb6d1"
+    },
+    {
+      "path": "server/src/studentContent.js",
+      "blobSha": "ff1a96f2cdb308742e081d5431dbda5bb5082754"
+    },
+    {
+      "path": "server/src/qbankAttempts.js",
+      "blobSha": "0dd011450c7c39bdaea9350a0b17a93be27b66f5"
+    },
+    {
+      "path": "src/data/questionSource.ts",
+      "blobSha": "87bc646ecf493bc134a1ee4b4b6c6eb560167625"
+    },
+    {
+      "path": "src/data/attempts.ts",
+      "blobSha": "eafe541298cc5ccbfaedc8e689ea3c3c662cd2e9"
+    },
+    {
+      "path": "src/lib/attemptSync.ts",
+      "blobSha": "9b021ebf3d389c5420b02c08df06b04ee3eade2e"
+    },
+    {
+      "path": "src/data/questionProjection.ts",
+      "blobSha": "820a9a585c8af98c8f9150d09d6d4cb344ac2985"
+    },
+    {
+      "path": "src/data/qbankScope.ts",
+      "blobSha": "b0ef60d1bc2d9c55a8a297624c3653c9e8675f49"
+    },
+    {
+      "path": "src/data/sittings.ts",
+      "blobSha": "8cb1606dbfbf1b02e6ceeb891690180e2e65b8b3"
+    },
+    {
+      "path": "src/lib/useSittings.ts",
+      "blobSha": "a62374c16fdb19bf7f0ac80476947bc75ff695b9"
+    }
+  ]
+}

@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
 }
 
 internal val LocalArabic = staticCompositionLocalOf { false }
-@Composable private fun tr(en: String, ar: String): String = if (LocalArabic.current) ar else en
+@Composable internal fun tr(en: String, ar: String): String = if (LocalArabic.current) ar else en
 
 @Composable fun NishanyTheme(content: @Composable () -> Unit) {
     val dark = isSystemInDarkTheme()
@@ -72,6 +72,7 @@ internal val LocalArabic = staticCompositionLocalOf { false }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable private fun StudentApp(vm: StudentViewModel, ui: StudentUi) {
     val arabic = LocalArabic.current
+    BackHandler(ui.page == Page.QBANK && ui.qbankQuestions.isNotEmpty() && !ui.loading) { vm.closeQbankViewer() }
     BackHandler(ui.editor != null && !ui.loading) { vm.page(Page.NOTEBOOK) }
     Scaffold(topBar = {
         TopAppBar(title = { Text("nishany", fontFamily = FontFamily.Serif, fontWeight = FontWeight.Bold,
@@ -106,6 +107,7 @@ internal val LocalArabic = staticCompositionLocalOf { false }
                     else if (ui.editor != null) NoteEditor(ui, vm)
                     else when (ui.page) {
                         Page.HOME -> HomeScreen(ui, vm)
+                        Page.QBANK -> QbankScreen(ui, vm)
                         Page.NOTEBOOK -> NotebookScreen(ui, vm)
                         Page.UNIVERSITY -> UniversityScreen(ui, vm)
                         Page.ACCOUNT -> AccountScreen(ui, vm)
@@ -119,6 +121,7 @@ internal val LocalArabic = staticCompositionLocalOf { false }
 
 @Composable private fun pageTitle(page: Page): String = when (page) {
     Page.HOME -> tr("Home", "الرئيسية")
+    Page.QBANK -> tr("QBank", "الأسئلة")
     Page.NOTEBOOK -> tr("Notebook", "ملاحظاتي")
     Page.UNIVERSITY -> tr("University", "الجامعة")
     Page.ACCOUNT -> tr("Account", "حسابي")

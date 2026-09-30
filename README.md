@@ -7,9 +7,11 @@ Native Kotlin / Jetpack Compose student app, using the existing Nishany accounts
 ## Present in source
 
 - Password sign-in, TOTP challenge, session recovery, password-recovery request, account and entitlement display.
-- Native home, notebook, university and account screens; English/Arabic, RTL and system light/dark appearance.
+- Native home, QBank, notebook, university and account screens; English/Arabic, RTL and system light/dark appearance.
 - Current per-note notebook API: list, local search, create, plain-body editing, metadata editing without flattening rich notes, history and prepared restore.
 - Encrypted account-scoped draft journal, server-version conflict handling and read-only reconciliation of uncertain writes.
+- QBank summary filtering, explicit saved-session viewing and unified test-history reading. Answers, timers and submissions are not enabled.
+- Generic user-state write journal infrastructure with preflight/read-back checks; not yet connected to QBank mutations.
 - University modules and published schedules from `/api/me/university`.
 
 No WebView application shell, separate account system, fabricated student data, or GitHub Actions workflow is included.

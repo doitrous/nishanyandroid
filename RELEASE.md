@@ -8,6 +8,14 @@ Initial native Kotlin/Compose implementation includes existing-account password/
 
 The complete requested scope and remaining work are in [PARITY_SWEEP.md](PARITY_SWEEP.md). No source-only feature is labeled verified. Account/API contracts were inspected in the website; newer local uncommitted iOS work was not accessible.
 
+## QBank continuation — 2026-09-30
+
+Added native summary catalogue filtering, unified sitting history and explicit read-only viewing of an open saved session. Full content is fetched by exact IDs only after a student action with an allowance notice. Incomplete, duplicate or unsupported sessions fail as a whole. Checked tutor explanations are visible; unchecked/timed answer keys stay hidden in the UI. Rich media rendering is incomplete and identified in the viewer.
+
+Added generic user-state journal and encrypted account-bound storage infrastructure. It blocks replay after any attempted write and uses read-back reconciliation. This is **not yet wired to QBank writes**. Pure session patch helpers are scaffolding only. New tests cover quota-safe hydration, missing questions, unknown fields, stale bases, lost responses and owner isolation; all remain unexecuted.
+
+QBank answering, new-session creation, timers, server scoring, flags/reports and writable resume remain unfinished. A server attempt POST and shared progress documents are separate writes; the source does not pretend those are atomic or that a lost POST receipt can be inferred from a local score. See `docs/QBANK.md`.
+
 ## Exact execution status
 
 | Check | Result | Evidence |

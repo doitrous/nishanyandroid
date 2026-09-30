@@ -103,3 +103,17 @@ class EncryptedDrafts(private val vault: SecureVault) : DraftStorage {
         }
     }
 }
+
+/** Pending generic document writes use separate encrypted, account-bound records. */
+class EncryptedStateEdits(private val vault: SecureVault) : StateEditStorage {
+    private fun storageKey(owner: String, document: String) = "state-edit:${owner.length}:$owner:$document"
+    override suspend fun get(owner: String, key: String): StateEdit? = withContext(Dispatchers.IO) {
+        vault.read(storageKey(owner, key))?.let { StateEdit.decode(it) }?.also { require(it.owner == owner && it.key == key) }
+    }
+    override suspend fun put(edit: StateEdit) = withContext(Dispatchers.IO) {
+        vault.write(storageKey(edit.owner, edit.key), edit.encode())
+    }
+    override suspend fun remove(owner: String, key: String) = withContext(Dispatchers.IO) {
+        vault.write(storageKey(owner, key), null)
+    }
+}

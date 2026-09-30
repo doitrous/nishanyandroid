@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.serialization.json.*
 
-enum class Page { HOME, NOTEBOOK, UNIVERSITY, ACCOUNT }
+enum class Page { HOME, QBANK, NOTEBOOK, UNIVERSITY, ACCOUNT }
 data class StudentUi(
     val loading: Boolean = true, val signedIn: Boolean = false, val mfa: Boolean = false,
     val error: Throwable? = null, val notice: String? = null, val storageReady: Boolean = true,
@@ -22,6 +22,9 @@ data class StudentUi(
     val conflict: NoteSnapshot? = null, val history: List<JsonObject>? = null,
     val factors: List<JsonObject> = emptyList(), val arabic: Boolean? = null,
     val inbox: List<JsonObject>? = null,
+    val catalogue: List<QuestionSummary>? = null, val qbankSaved: JsonElement = JsonNull,
+    val qbankHistory: List<JsonObject>? = null, val qbankQuestions: List<QbankQuestion> = emptyList(),
+    val qbankIndex: Int = 0,
 )
 
 class StudentViewModel(application: Application) : AndroidViewModel(application) {
@@ -117,12 +120,36 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
         }
         state.value = state.value.copy(page = page, editor = null, history = null, conflict = null, error = null)
         when (page) {
+            Page.QBANK -> refreshQbank()
             Page.NOTEBOOK -> refreshNotes()
             Page.UNIVERSITY -> refreshUniversity()
             Page.ACCOUNT -> task { g, c -> val me = AccountRepository(c).me(); publish(g) { it.copy(me = me) } }
             else -> Unit
         }
     }
+    fun refreshQbank() = task { g, client ->
+        val repo = QbankRepository(client)
+        val catalogue = repo.catalogue()
+        publish(g) { it.copy(catalogue = catalogue) }
+        val saved = client.request("/api/user-state/${segment(QbankKeys.ACTIVE)}").jsonObject.getValue("value")
+        val history = repo.history()
+        publish(g) { it.copy(qbankSaved = saved, qbankHistory = history, qbankQuestions = emptyList()) }
+    }
+    fun viewSavedQbank() = task { g, client ->
+        // Re-read before quota-bearing hydration; never turn a completed sitting into an active one.
+        val saved = client.request("/api/user-state/${segment(QbankKeys.ACTIVE)}").jsonObject.getValue("value")
+        val repo = QbankRepository(client)
+        val history = repo.history()
+        require(QbankSession.resumable(saved) && history.none { it["id"].str() == saved.obj()["sessionId"].str() })
+        val questions = repo.questions(QbankSession.ids(saved.jsonObject))
+        publish(g) { it.copy(qbankSaved = saved, qbankHistory = history, qbankQuestions = questions,
+            qbankIndex = (saved.obj()["idx"].long() ?: 0L).coerceIn(0, questions.lastIndex.toLong()).toInt()) }
+    }
+    fun qbankIndex(index: Int) {
+        if (!state.value.loading && index in state.value.qbankQuestions.indices)
+            state.value = state.value.copy(qbankIndex = index)
+    }
+    fun closeQbankViewer() { state.value = state.value.copy(qbankQuestions = emptyList()) }
     fun refreshNotes() {
         val repo = notes ?: return
         task { g, _ ->
